@@ -55,7 +55,7 @@ export const Home = ({store}) => {
       <MenuSofiane>{users.map(userToMenuItem)}
       </MenuSofiane>
       <BreadcrumbSqli>{[]}</BreadcrumbSqli>
-      <AudioPlayer track={[currentTrack]}></AudioPlayer>
+      <AudioPlayer tracks={[currentTrack]}></AudioPlayer>
       <Autocomplete data={tracks.map(track => track.name)} placeholder="e.g. Light up"/>
       <Button action={()=>'ok'}><h1>Lancer la recherche</h1></Button>
         <div className="cards-list">
