@@ -14,19 +14,23 @@ export const Home = ({store}) => {
     const [loaded, setLoaded] = React.useState(false);
     const [tracks, setTracks] = React.useState([]);
     const [users, setUsers] = React.useState([]);
-    const [selectedTrack, setSelectedTrack] = React.useState(null);
+    const [currentTrack, setCurrentTrack] = React.useState(null);
 
     const userToMenuItem = user => ({label:user.name});
 
-    const textButtonAction = () => {};
+    const textButtonAction = data => {
+        setCurrentTrack(data.children.$ref);
+    };
     const trackToTextItem = track => 
        ({
            title: track.name,
            subtitle: track.album.name,
            imageSrc: track.album.image,
-           href: track.href,
-           ctaTitle: <Button action={textButtonAction}>Play</Button>,
-           content: track.name
+           href: textButtonAction,
+           ctaTitle: <Button>Play</Button>,
+           content: track.name,
+           $ref: track,
+           reversed: currentTrack == track
         });
     const navigate = data => {console.log(data)};
 
@@ -51,7 +55,7 @@ export const Home = ({store}) => {
       <MenuSofiane>{users.map(userToMenuItem)}
       </MenuSofiane>
       <BreadcrumbSqli>{[]}</BreadcrumbSqli>
-      <AudioPlayer/>
+      <AudioPlayer track={[currentTrack]}></AudioPlayer>
       <Autocomplete data={tracks.map(track => track.name)} placeholder="e.g. Light up"/>
       <Button action={()=>'ok'}><h1>Lancer la recherche</h1></Button>
         <div className="cards-list">
