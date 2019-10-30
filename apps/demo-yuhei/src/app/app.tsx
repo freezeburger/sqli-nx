@@ -15,8 +15,6 @@ export class App extends React.Component{
 
   componentDidMount(){
     console.warn(2, 'App');
-    const action = new Store.Action(Store.ActionTypes.USER_GET_LIST, null);
-    Store.dispatch(action);
   }
 
   componentDidUpdate(){

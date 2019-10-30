@@ -17,22 +17,46 @@ export const Home = ({store}) => {
    * 
    */
 
+   const [loaded, setLoaded] = React.useState(false);
+   const [tracks, setTracks] = React.useState([]);
+   const [users, setUsers] = React.useState([]);
+
+   const userToMenuItem = user => ({label:user.name});
+   const trackToTextItem = track => (
+       {
+           title: track.name,
+           subtitle: track.album.name,
+           imageSrc: track.album.image,
+           href: track.href,
+           ctaTitle: <button>Play</button>,
+           content: track.name
+        }
+    );
+
    // access fonctionnel au cycle de vie
    React.useEffect(()=>{
         const requestUser = new store.Action(store.ActionTypes.USER_GET_LIST, null);
         const requestTrack = new store.Action(store.ActionTypes.TRACK_GET_LIST, null);
-        store.dispatch(requestUser);
-        store.dispatch(requestTrack);
+        store.dispatch(requestUser).then(setUsers);
+        store.dispatch(requestTrack).then(setTracks);
+
+        setLoaded(true);
+
         // clean up function à faire sur le unmount
        return ()=> console.log('Bye Bye');
-   }, []);
+   }, [loaded]);
 
   const data = ['France','Morocco', 'usa', 'Canada'];
+
+  const navigate = data => {
+    console.log(data);
+    };
+
   const menu = [
-    { label: 'Lien 1', action: 'http://google.fr' },
-    { label: 'Lien 2', action: 'http://google.fr' },
-    { label: 'Lien 3', action: 'http://google.fr' },
-    { label: 'Lien 4', action: 'http://google.fr' }
+    { label: 'Lien 1', action: navigate },
+    { label: 'Lien 2', action: navigate },
+    { label: 'Lien 3', action: navigate },
+    { label: 'Lien 4', action: navigate }
   ];
   const trail = [
     {
@@ -48,26 +72,28 @@ export const Home = ({store}) => {
         label:'Tiger Woods'
     }
 ];
+    const trackCardHandler = data => {
+        console.log(data);
+    };
+
+    
 
   return (
     <div className="app">
       <Logo size="small"/>
-      <MenuSofiane>{menu}</MenuSofiane>
+      <MenuSofiane>{users.map(userToMenuItem)}
+      </MenuSofiane>
       <BreadcrumbSqli>{trail}</BreadcrumbSqli>
       <AudioPlayer coverImage="https://www.fishipedia.fr/wp-content/themes/fishipedia/css/img/home/thematics/fishes.jpg"/>
       <Autocomplete data={data} placeholder="e.g. Denmark"/>
       <Button action={()=>'ok'}>Lancer la recherche</Button>
-      <Text>
-        {{
-          title: "Fishipedia",
-          subtitle: "L'encylopédie du monde aquatique",
-          href: "https://www.fishipedia.fr/",
-          ctaTitle: "visiter le site",
-          content: '“Fishipedia.fr - 1er site encyclopédique dédié aux poissons et aux passions associées : Plongée, Snorkeling, Aquariophilie, Pêche.”',
-          imageSrc: 'https://www.fishipedia.fr/wp-content/themes/fishipedia/css/img/home/thematics/fishes.jpg',
-          reversed: false
-        }}
-      </Text>
+
+    <div className="cards-list">
+      {tracks.map( track => (
+          <Text>{trackToTextItem(track)}</Text>
+      ))}
+    </div>
+
       <Footer background="gray"></Footer>
       </div>
   );
