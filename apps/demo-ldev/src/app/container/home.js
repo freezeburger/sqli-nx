@@ -2,7 +2,7 @@ import React from "react";
 
 import "../app.css";
 
-import { Button, Logo, MenuSofiane, Footer, Autocomplete, AudioPlayer, Text,BreadcrumbSqli } from '@sqli/gui'
+import { Button, Logo, MenuSofiane, Footer, Autocomplete, AudioPlayer, Text, BreadcrumbSqli } from '@sqli/gui'
 
 
 
@@ -12,6 +12,10 @@ export const Home = ({ store }) => {
    *
    * Note: The corresponding styles are in the ./${fileName}.${style} file.
    */
+  const [loaded, setLoaded] = React.useState(false);
+  const [tracks, setTracks] = React.useState([]);
+  const [users, setUsers] = React.useState([]);
+
   React.useEffect(() => {
 
     const requestUser = new store.Action(store.ActionTypes.USER_GET_LIST, null);
@@ -33,9 +37,9 @@ export const Home = ({ store }) => {
     { label: 'Search', action: navigate },
     { label: 'Login', action: navigate }
   ];
-const trackCardHandler = data =>{
-  console.log(data);
-};
+  const trackCardHandler = data => {
+    console.log(data);
+  };
 
   function sayHello() {
     alert('ça fonctionne !');
@@ -70,18 +74,18 @@ const trackCardHandler = data =>{
       </Text>
       <AudioPlayer />
       <BreadcrumbSqli
-              trail={[
-                { label: 'Yuhei', action: '' },
-                { label: 'Sullivan', action: '' },
-                { label: 'Sofiane', action: '' },
-                { label: 'AbdelJallil', action: '' },
-                { label: 'Mohamed', action: '' },
-                { label: 'Max', action: '' },
-                { label: 'Khalid', action: '' },
-                { label: 'Khalil', action: '' },
-                { label: 'Renaud', action: '' }
-              ]}
-            ></BreadcrumbSqli>
+        trail={[
+          { label: 'Yuhei', action: '' },
+          { label: 'Sullivan', action: '' },
+          { label: 'Sofiane', action: '' },
+          { label: 'AbdelJallil', action: '' },
+          { label: 'Mohamed', action: '' },
+          { label: 'Max', action: '' },
+          { label: 'Khalid', action: '' },
+          { label: 'Khalil', action: '' },
+          { label: 'Renaud', action: '' }
+        ]}
+      ></BreadcrumbSqli>
       <Footer />
 
     </div>
