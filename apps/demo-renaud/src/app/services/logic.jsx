@@ -1,8 +1,8 @@
 import { ActionTypes } from './facade';
 
-const ROOT = '1dd54d79';
-const API_USERS = `https://${ROOT}.ngrok.io/users`;
-const API_TRACKS = `https://${ROOT}.ngrok.io/tracks`;
+const ROOT = 'http://localhost:5050';
+const API_USERS = `${ROOT}/users`;
+const API_TRACKS = `${ROOT}/tracks`;
 
 const selectedUser = { value: null };
 const selectedTrack = { value: null };
