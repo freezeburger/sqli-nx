@@ -52,7 +52,19 @@ export const Home = ({ store }) => {
       <MenuSofiane background="true">{[]}</MenuSofiane>
       <MenuSofiane>{routes}</MenuSofiane>
       <MenuSofiane background="true">{[]}</MenuSofiane>
-
+      <BreadcrumbSqli
+        trail={[
+          { label: 'Yuhei', action: '' },
+          { label: 'Sullivan', action: '' },
+          { label: 'Sofiane', action: '' },
+          { label: 'AbdelJallil', action: '' },
+          { label: 'Mohamed', action: '' },
+          { label: 'Max', action: '' },
+          { label: 'Khalid', action: '' },
+          { label: 'Khalil', action: '' },
+          { label: 'Renaud', action: '' }
+        ]}
+      ></BreadcrumbSqli>
       <Button>
         <a href="https://www.google.fr/" id="generic-btn-premium" role="button" data-tracking="{&quot;category&quot;: &quot;home (offer)&quot;, &quot;action&quot;: &quot;premium&quot;}" className="btn btn-green btn-simplified js-goto-signup js-button-hero-get-free">
           Mon Button
@@ -73,19 +85,7 @@ export const Home = ({ store }) => {
         }}
       </Text>
       <AudioPlayer />
-      <BreadcrumbSqli
-        trail={[
-          { label: 'Yuhei', action: '' },
-          { label: 'Sullivan', action: '' },
-          { label: 'Sofiane', action: '' },
-          { label: 'AbdelJallil', action: '' },
-          { label: 'Mohamed', action: '' },
-          { label: 'Max', action: '' },
-          { label: 'Khalid', action: '' },
-          { label: 'Khalil', action: '' },
-          { label: 'Renaud', action: '' }
-        ]}
-      ></BreadcrumbSqli>
+   
       <Footer />
 
     </div>
