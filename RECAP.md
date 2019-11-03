@@ -67,7 +67,7 @@ const PascalName = props => (
         <OtherComponent customValueProps={evaluatedExpression}>
         <OtherComponent {...props}>
         <div onClick={functionReference}>This is an html element</div>
-        <OtherComponent onClick={functionReference}> {/*  this will fail cant listen DOM Evevmt on Component */}
+        <OtherComponent onClick={functionReference}> {/*  this will fail cant listen DOM Event on Component */}
         <RecevicerComponent>
         {/*  the following will be received as props.children */}
             <a href="#">text</a>
@@ -88,7 +88,7 @@ export default PascalName;
 
 ### Composants et Ref:
 
-> Une `ref` est un espace de référence (conateneur) pour un element a rendre dans le futur par React
+> Une `ref` est un espace de référence (conteneur) pour un element a rendre dans le futur par React
 
 * Element HTML
 * Component (uniquement sous forme de `class`)

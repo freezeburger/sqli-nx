@@ -3,7 +3,7 @@
 }
 
 .background {
-    background-color: rgb(245, 209, 184);
+    background-color: rgb(134, 134, 134);
 }
 
 .menu{
@@ -31,7 +31,7 @@
 
 .menu.menu-horizontal a{
     min-width: 100px;
-    border-right: 1px solid rgb(11, 19, 19);
+    border-right: 1px solid rgb(44, 134, 134);
     margin-right:10px;
 }
 
@@ -39,7 +39,7 @@
     display: inline-block;
     text-decoration:none;
     text-transform: capitalize;
-    color:rgb(11, 19, 19);
+    color:rgb(61, 11, 177);
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
     padding:3px;

@@ -46,6 +46,18 @@
     },
     "demo-abdeljelil-e2e": {
       "tags": []
+    },
+    "dwf": {
+      "tags": []
+    },
+    "dwf-e2e": {
+      "tags": []
+    },
+    "demo-dwf-dwf": {
+      "tags": []
+    },
+    "demo-dwf-dwf-e2e": {
+      "tags": []
     }
   }
 }

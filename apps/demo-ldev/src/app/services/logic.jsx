@@ -1,14 +1,15 @@
 import {ActionTypes} from'./facade'
 
-//const ROOT ='1dd54d79';
-//const API_USERS = `https://${ROOT}.ngrok.io/users`;
-//const API_TRACKS =`https://${ROOT}.ngrok.io/tracks`;
+//const ROOT ='./apps/API/data.json';
+const API_USERS = `http://www.json-generator.com/api/json/get/bVVCPOqUXS?indent=2`;
+const API_TRACKS =`http://www.json-generator.com/api/json/get/cfLAmukUia?indent=2`;
 
-const API_USERS = `http://7e9ea9dc.ngrok.io/users`;
-const API_TRACKS =`http://7e9ea9dc.ngrok.io/tracks`;
+//const selecteUsers=()=>{};
+//const selecteTracks=()=>{};
 
-const selecteUsers=()=>{};
-const selecteTracks=()=>{};
+
+const selecteUsers ={value: null };
+const selecteTracks ={value: null };
 
 const fetchUsers =()=>{
     return fetch(API_USERS).then(res=> res.json())

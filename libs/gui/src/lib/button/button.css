@@ -1,5 +1,6 @@
 
-button{ -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+button{ 
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 -webkit-box-direction: normal;
 direction: ltr;
 font-family: Circular, Helvetica, Arial, sans-serif;
@@ -26,7 +27,7 @@ border-image: initial;
 border-radius: 500px;
 padding: 17px 48px;
 text-decoration: none !important;
-color: rgb(255, 255, 255);
+color: rgb(3, 3, 3);
 box-sizing: border-box;
 width: auto
 };

@@ -1080,6 +1080,211 @@
           }
         }
       }
+    },
+    "dwf": {
+      "root": "apps/dwf",
+      "sourceRoot": "apps/dwf/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:build",
+          "options": {
+            "outputPath": "dist/apps/dwf",
+            "index": "apps/dwf/src/index.html",
+            "main": "apps/dwf/src/main.tsx",
+            "polyfills": "apps/dwf/src/polyfills.ts",
+            "tsConfig": "apps/dwf/tsconfig.app.json",
+            "assets": ["apps/dwf/src/favicon.ico", "apps/dwf/src/assets"],
+            "styles": ["apps/dwf/src/styles.css"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/babel"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/dwf/src/environments/environment.ts",
+                  "with": "apps/dwf/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "dwf:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "dwf:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/dwf/tsconfig.app.json",
+              "apps/dwf/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/dwf/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/dwf/jest.config.js",
+            "tsConfig": "apps/dwf/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "dwf-e2e": {
+      "root": "apps/dwf-e2e",
+      "sourceRoot": "apps/dwf-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/dwf-e2e/cypress.json",
+            "tsConfig": "apps/dwf-e2e/tsconfig.e2e.json",
+            "devServerTarget": "dwf:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "dwf:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/dwf-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/dwf-e2e/**"]
+          }
+        }
+      }
+    },
+    "demo-dwf-dwf": {
+      "root": "apps/demo-dwf/dwf",
+      "sourceRoot": "apps/demo-dwf/dwf/src",
+      "projectType": "application",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/web:build",
+          "options": {
+            "outputPath": "dist/apps/demo-dwf/dwf",
+            "index": "apps/demo-dwf/dwf/src/index.html",
+            "main": "apps/demo-dwf/dwf/src/main.tsx",
+            "polyfills": "apps/demo-dwf/dwf/src/polyfills.ts",
+            "tsConfig": "apps/demo-dwf/dwf/tsconfig.app.json",
+            "assets": [
+              "apps/demo-dwf/dwf/src/favicon.ico",
+              "apps/demo-dwf/dwf/src/assets"
+            ],
+            "styles": ["apps/demo-dwf/dwf/src/styles.css"],
+            "scripts": [],
+            "webpackConfig": "@nrwl/react/plugins/babel"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/demo-dwf/dwf/src/environments/environment.ts",
+                  "with": "apps/demo-dwf/dwf/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/web:dev-server",
+          "options": {
+            "buildTarget": "demo-dwf-dwf:build"
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "demo-dwf-dwf:build:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/demo-dwf/dwf/tsconfig.app.json",
+              "apps/demo-dwf/dwf/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/demo-dwf/dwf/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/demo-dwf/dwf/jest.config.js",
+            "tsConfig": "apps/demo-dwf/dwf/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "demo-dwf-dwf-e2e": {
+      "root": "apps/demo-dwf/dwf-e2e",
+      "sourceRoot": "apps/demo-dwf/dwf-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/demo-dwf/dwf-e2e/cypress.json",
+            "tsConfig": "apps/demo-dwf/dwf-e2e/tsconfig.e2e.json",
+            "devServerTarget": "demo-dwf-dwf:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "demo-dwf-dwf:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/demo-dwf/dwf-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/demo-dwf/dwf-e2e/**"]
+          }
+        }
+      }
     }
   },
   "cli": {
